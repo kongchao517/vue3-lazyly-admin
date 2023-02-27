@@ -13,7 +13,7 @@
   <div class="menu">
     <div class="menu_logo" @click="(isCollapse = !isCollapse), emit('update:isCollapse', isCollapse);">
       <el-icon class="icon"><Ship /></el-icon>
-      <div v-if="!isCollapse">力扣</div>
+      <div v-if="!isCollapse">力扣1</div>
     </div>
     <el-menu
       class="el-menu-vertical-demo"
