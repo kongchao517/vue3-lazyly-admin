@@ -1,16 +1,10 @@
-import { post } from '@/utils/request';
+/*
+ * @Descripttion:
+ * @Author: lazyly
+ * @Date: 2022-12-05 11:17:53
+ * @LastEditors: lazyly
+ * @LastEditTime: 2022-12-05 11:21:05
+ */
+import { post } from "@/utils/request "
 
-export default class User {
-  /**
-   * 登录
-   * @param {String} username 用户名
-   * @param {String} password 密码
-   * @returns
-   */
-  static async login(username, password) {
-    return post('/login', {
-      username,
-      password,
-    });
-  }
-}
+export const login = params => post("/login", params)

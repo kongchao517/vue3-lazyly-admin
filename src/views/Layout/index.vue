@@ -1,0 +1,44 @@
+<!--
+ * @Descripttion:
+ * @Author: lazyly
+ * @Date: 2022-12-20 10:09:05
+ * @LastEditors: lazyly
+ * @LastEditTime: 2023-02-12 13:41:39
+-->
+<template>
+  <div class="common-layout">
+    <el-container>
+      <el-aside :style="{ width: isCollapse ? '65px' : '200px' }">
+        <Menu v-model:isCollapse="isCollapse" />
+      </el-aside>
+      <el-container>
+        <el-header>
+          <Head />
+          <Tabs />
+        </el-header>
+        <el-main><router-view /></el-main>
+      </el-container>
+    </el-container>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import Menu from './Menu';
+import Head from './Head';
+import Tabs from './Tabs';
+const isCollapse = ref(false);
+</script>
+<style scoped lang="scss">
+.el-header {
+  padding: 0;
+}
+
+.el-container {
+  display: flex;
+
+  .el-container {
+    flex: 1;
+  }
+}
+</style>

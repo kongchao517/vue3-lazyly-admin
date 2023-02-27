@@ -1,9 +1,15 @@
+/*
+ * @Descripttion:
+ * @Author: kongchao
+ * @Date: 2023-02-21 13:32:38
+ * @LastEditors: kongchao
+ * @LastEditTime: 2023-02-21 15:28:14
+ */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
+// 图片压缩
+import viteImagemin from 'vite-plugin-imagemin';
 import vue from '@vitejs/plugin-vue';
-import AutoImport from 'unplugin-auto-import/vite';
-import Components from 'unplugin-vue-components/vite';
-import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 
 export default ({ mode }) => {
   const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
@@ -12,24 +18,49 @@ export default ({ mode }) => {
     base: VITE_BASE_URL,
     plugins: [
       vue(),
-      AutoImport({
-        resolvers: [
-          TDesignResolver({
-            library: 'vue-next',
-          }),
-        ],
-      }),
-      Components({
-        resolvers: [
-          TDesignResolver({
-            library: 'vue-next',
-          }),
-        ],
+      viteImagemin({
+        gifsicle: {
+          optimizationLevel: 7,
+          interlaced: false,
+        },
+        optipng: {
+          optimizationLevel: 7,
+        },
+        mozjpeg: {
+          quality: 20,
+        },
+        pngquant: {
+          quality: [0.8, 0.9],
+          speed: 4,
+        },
+        svgo: {
+          plugins: [
+            {
+              name: 'removeViewBox',
+            },
+            {
+              name: 'removeEmptyAttrs',
+              active: false,
+            },
+          ],
+        },
       }),
     ],
     resolve: {
+      extensions: ['.js', '.vue'],
       alias: {
-        '@': resolve(__dirname, 'src'),
+        '@': resolve(__dirname, './src'),
+        '@assets': resolve(__dirname, 'src/assets'),
+        '@plugins': resolve(__dirname, 'src/plugins'),
+        '@components': resolve(__dirname, 'src/components'),
+        '@router': resolve(__dirname, 'src/router'),
+        '@views': resolve(__dirname, 'src/views'),
+        '@store': resolve(__dirname, 'src/store'),
+        '@utils': resolve(__dirname, 'src/utils'),
+        '@config': resolve(__dirname, 'src/config'),
+        '@api': resolve(__dirname, 'src/api'),
+        '@g': resolve(__dirname, 'src/global'),
+        '@page': resolve(__dirname, 'src/views/page'),
       },
     },
     css: {
@@ -63,9 +94,32 @@ export default ({ mode }) => {
       // 构建后是否生成 source map 文件
       sourcemap: false,
       //  chunk 大小警告的限制（以 kbs 为单位）
-      chunkSizeWarningLimit: 2000,
+      chunkSizeWarningLimit: 3000,
       // 启用/禁用 gzip 压缩大小报告
       reportCompressedSize: false,
+      // 清除console和debugger
+      // terserOptions: {
+      // 	compress: {
+      // 		drop_console: true,
+      // 		drop_debugger: true
+      // 	}
+      // },
+      // outDir: "service-center-backstage",
+      rollupOptions: {
+        output: {
+          // 静态资源分类打包
+          chunkFileNames: 'static/js/[name]-[hash].js',
+          entryFileNames: 'static/js/[name]-[hash].js',
+          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+          manualChunks(id) {
+            // 静态资源分拆打包
+
+            if (id.includes('node_modules')) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            }
+          },
+        },
+      },
     },
   });
 };

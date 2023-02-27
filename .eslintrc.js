@@ -90,5 +90,7 @@ module.exports = defineConfig({
     'arrow-spacing': 'error',
     // 只强制对象解构，不强制数组解构
     'prefer-destructuring': ['error', { object: true, array: false }],
+    // 关闭名称校验
+    'vue/multi-word-component-names': 'off',
   },
 });

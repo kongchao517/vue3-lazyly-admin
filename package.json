@@ -20,16 +20,25 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .vue,.js,.jsx,.ts,.tsx ./ --max-warnings 0 --cache --cache-location node_modules/.cache/eslint/",
-    "lint:fix": "eslint --ext .vue,.js,jsx,.ts,.tsx ./ --max-warnings 0 --cache --cache-location node_modules/.cache/eslint/ --fix",
+    "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
+		"lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
+		"lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+		"lint:lint-staged": "lint-staged",
     "stylelint": "stylelint src/**/*.{html,vue,sass,scss,less} --cache --cache-location node_modules/.cache/stylelint/",
     "stylelint:fix": "stylelint src/**/*.{html,vue,sass,scss,less} --cache --cache-location node_modules/.cache/stylelint/ --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git pull && git add -A && git-cz && git push"
   },
   "dependencies": {
     "axios": "^1.2.2",
+    "dayjs": "^1.11.7",
+    "echarts": "^5.4.1",
+    "element-plus": "^2.2.32",
+    "node-sass": "^8.0.0",
     "pinia": "^2.0.28",
-    "tdesign-vue-next": "^1.0.1",
+    "sass": "^1.58.3",
+    "sass-loader": "^13.2.0",
+    "vite-plugin-imagemin": "^0.6.1",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
@@ -52,49 +61,26 @@
     "postcss-html": "^1.5.0",
     "postcss-less": "^6.0.0",
     "prettier": "^2.8.1",
-    "stylelint": "^14.16.1",
+    "stylelint": "^15.2.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-recess-order": "^3.1.0",
-    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard": "^30.0.1",
     "stylelint-less": "^1.0.6",
-    "stylelint-order": "^5.0.0",
+    "stylelint-order": "^6.0.2",
+    "stylelint-scss": "^4.4.0",
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",
     "vite": "^3.2.5",
     "vue-eslint-parser": "^9.1.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.vue": [
-      "prettier --write",
-      "eslint --fix",
-      "stylelint --fix"
-    ],
-    "*.{html,sass,scss,less}": [
-      "prettier --write",
-      "stylelint --fix"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
-  },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china"
   },
   "browserslist": [
     "defaults"
