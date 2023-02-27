@@ -1,21 +1,11 @@
 {
-  "name": "vite-vue-js-starter-template",
-  "description": "Vue3 JavaScript Starter Project For Vite.",
-  "version": "0.0.0",
+  "name": "vue3-lazyly-admin",
+  "description": "vue3、vite3、pinia、element-plus、eslint、prettier",
+  "version": "0.0.1",
   "license": "MIT",
-  "author": {
-    "name": "ElanYoung",
-    "email": "william@starimmortal.com",
-    "url": "https://doc.starimmortal.com"
-  },
-  "homepage": "https://elanyoung.github.io/vite-vue-js-starter-template",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ElanYoung/vite-vue-js-starter-template.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ElanYoung/vite-vue-js-starter-template/issues"
-  },
+  "author": "kongchao",
+  "homepage": "https://github.com/kongchao517/vue3-lazyly-admin.git",
+  "repository": "https://github.com/kongchao517/vue3-lazyly-admin.git",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -80,5 +70,6 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "main": "index.js"
 }
