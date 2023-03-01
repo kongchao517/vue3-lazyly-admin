@@ -1,10 +1,11 @@
 /*
- * @Descripttion:
- * @Author: lazyly
- * @Date: 2022-12-05 11:17:53
- * @LastEditors: lazyly
- * @LastEditTime: 2022-12-05 11:21:05
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 18:12:56
  */
-import { post } from "@/utils/request "
+import { post } from '@/utils/request';
 
-export const login = params => post("/login", params)
+export const login = (params) => post('/login', params);

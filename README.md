@@ -7,7 +7,7 @@
 + 🚦 [Vue Router](https://router.vuejs.org/zh) - 官方路由管理器
 + 📦 [Pinia](https://pinia.vuejs.org/zh) - 值得你喜欢的 Vue Store
 + 💻 [TDesign](https://tdesign.tencent.com/vue-next/getting-started) - TDesign 适配桌面端的组件库
-+ 🎨 [Less](https://less.bootcss.com/) - CSS 预处理器
++ 🎨 [scss](https://www.sass.hk/) - CSS 预处理器
 + 🔗 [Axios](https://axios-http.com/zh/) - 一个基于 promise 的网络请求库，可以用于浏览器和 node.js
 + 🧰 [Husky](https://typicode.github.io/husky/#/) + [Lint-Staged](https://github.com/okonet/lint-staged) - Git Hook 工具
 + 🛡️ [EditorConfig](http://editorconfig.org) + [ESLint](http://eslint.cn) + [Prettier](https://prettier.cn) + [Stylelint](https://stylelint.cn) + [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript#translation) - 代码规范

@@ -1,9 +1,10 @@
 <!--
- * @Descripttion:
- * @Author: lazyly
- * @Date: 2022-12-20 10:09:05
- * @LastEditors: lazyly
- * @LastEditTime: 2023-02-12 13:41:39
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:30:43
 -->
 <template>
   <div class="common-layout">
@@ -27,6 +28,7 @@ import { ref } from 'vue';
 import Menu from './Menu';
 import Head from './Head';
 import Tabs from './Tabs';
+
 const isCollapse = ref(false);
 </script>
 <style scoped lang="scss">

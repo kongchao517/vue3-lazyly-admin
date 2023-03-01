@@ -1,17 +1,19 @@
 <!--
- * @Descripttion:公共菜单
- * @Author: lazyly
- * @Date: 2023-01-12 21:54:39
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-28 19:09:23
+ * @ description:公共菜单
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:01:15
 -->
+
 <template>
   <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
 		<el-radio-button :label="false">expand</el-radio-button>
 		<el-radio-button :label="true">collapse</el-radio-button>
 	</el-radio-group> -->
   <div class="menu">
-    <div class="menu_logo" @click="(isCollapse = !isCollapse), emit('update:isCollapse', isCollapse);">
+    <div class="menu_logo" @click="emit('update:isCollapse', isCollapse ? false : true)">
       <el-icon class="icon"><Ship /></el-icon>
       <div v-if="!isCollapse">力扣1</div>
     </div>
@@ -29,12 +31,12 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { computed } from 'vue';
 import { Ship } from '@element-plus/icons-vue';
-import MenuItem from './MenuItem';
-import { Document, Menu as IconMenu, Location, Setting } from '@element-plus/icons-vue';
 import { useRouter, useRoute } from 'vue-router';
-const props = defineProps({
+import MenuItem from './MenuItem';
+
+defineProps({
   isCollapse: {
     type: Boolean,
     default: () => false,
@@ -42,11 +44,12 @@ const props = defineProps({
 });
 const emit = defineEmits(['update:isCollapse']);
 const route = useRoute();
-//深层解构出路由地址
+//  深层解构出路由地址
 const {
   options,
   options: { routes },
 } = useRouter();
+console.log(options);
 const defaultActive = computed(() => route.path);
 </script>
 <style scoped lang="scss">
@@ -60,7 +63,7 @@ const defaultActive = computed(() => route.path);
   .menu_logo {
     position: relative;
     top: 25px;
-    width:50px;
+    width: 50px;
     height: 115px;
     margin: auto;
     color: #ffffff;

@@ -1,4 +1,12 @@
 <!--
+ * @ description: 
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record: 
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:53:44
+-->
+<!--
  * @Descripttion:
  * @Author: lazyly
  * @Date: 2022-12-05 10:34:43
@@ -19,7 +27,6 @@ onMounted(() => {});
 const findMaxConsecutiveOnes = (nums) => {
   return Math.max(...nums.join('').split('0')).toString().length;
 };
-
 console.log('findMaxConsecutiveOnes([1,1,0,1,1,1])', findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
 </script>
 <style scoped lang="scss">

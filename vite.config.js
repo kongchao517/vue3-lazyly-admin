@@ -1,9 +1,10 @@
 /*
- * @Descripttion:
- * @Author: kongchao
- * @Date: 2023-02-21 13:32:38
- * @LastEditors: kongchao
- * @LastEditTime: 2023-02-21 15:28:14
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:59
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 18:15:06
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
@@ -61,17 +62,6 @@ export default ({ mode }) => {
         '@api': resolve(__dirname, 'src/api'),
         '@g': resolve(__dirname, 'src/global'),
         '@page': resolve(__dirname, 'src/views/page'),
-      },
-    },
-    css: {
-      preprocessorOptions: {
-        less: {
-          modifyVars: {
-            hack: `true; @import (reference) "${resolve('src/style/variables.less')}";`,
-          },
-          math: 'strict',
-          javascriptEnabled: true,
-        },
       },
     },
     server: {

@@ -1,15 +1,16 @@
 <!--
- * @Descripttion:登录页面
- * @Author: lazyly
- * @Date: 2022-12-19 17:20:54
- * @LastEditors: lazyly
- * @LastEditTime: 2023-02-13 20:39:11
+ * @ description:登录页面
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 18:01:17
 -->
 <template>
   <div class="login_box">
     <div class="logo_box_bg">
       <div class="logo_margin">
-        <el-button type="primary" size="default" @click="router.push({ path: '/home' })"> 登录 </el-button>
+        <el-button type="primary" size="default" @click="router.push({ path: '/home' })">登录</el-button>
       </div>
     </div>
   </div>

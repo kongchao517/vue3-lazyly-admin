@@ -1,17 +1,18 @@
 /*
- * @Descripttion:数与位
- * @Author: lazyly
- * @Date: 2023-01-28 13:41:35
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-28 17:41:17
+ * @ description:数与位
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:10:50
  */
 export const NumberAndBit = [
-	{
-		path: "/numberAndBit",
-		name: "NumberAndBit",
-		component: () => import("@page/NumberAndBit"),
-		meta: {
-			title: "数与位"
-		}
-	}
-]
+  {
+    path: '/numberAndBit',
+    name: 'NumberAndBit',
+    component: () => import('@page/NumberAndBit'),
+    meta: {
+      title: '数与位',
+    },
+  },
+];

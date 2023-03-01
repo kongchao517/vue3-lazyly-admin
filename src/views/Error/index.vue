@@ -1,10 +1,12 @@
 <!--
- * @Descripttion:404页面
- * @Author: lazyly
- * @Date: 2022-12-20 09:55:26
- * @LastEditors: kongchao
- * @LastEditTime: 2023-02-21 14:46:14
+ * @ description:404页面
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 18:10:15
 -->
+
 <template>
   <div class="ve_404">
     <!-- partial:index.partial.html -->
@@ -40,9 +42,7 @@ import { ref, onUnmounted, onMounted } from 'vue';
 
 const cav = ref(null);
 let timer = null;
-onMounted(() => {
-  draw3dAstronaut();
-});
+
 /**
  * @description: 画3d太空人
  * @param {*}
@@ -53,11 +53,11 @@ const draw3dAstronaut = () => {
   cav.value.height = cav.value.parentNode.clientHeight;
 
   // colours
-  const dark_navy = '#131e38';
+  const darkNavy = '#131e38';
   const orange = '#fe9642';
   const cream = '#FFF8E7';
-  const light_purple = '#7f3f98';
-  const dark_purple = '#563795';
+  const lightPurple = '#7f3f98';
+  const darkPurple = '#563795';
   const cheese = '#fbc715';
 
   // create illo
@@ -99,7 +99,7 @@ const draw3dAstronaut = () => {
     width: 28,
     stroke: 60,
     fill: true,
-    color: dark_purple,
+    color: darkPurple,
     translate: { x: -140, y: -64 },
     cornerRadius: 0.05,
   });
@@ -115,23 +115,23 @@ const draw3dAstronaut = () => {
     cornerRadius: 0.05,
   });
 
-  // bubble_arm
-  const bubble_arm = new Zdog.Shape({
+  // bubbleArm
+  const bubbleArm = new Zdog.Shape({
     addTo: arm,
     path: [{ x: -20 }, { x: 20 }],
     stroke: 32,
-    color: light_purple,
+    color: lightPurple,
     translate: { y: 210 },
   });
 
-  bubble_arm.copy({
-    color: dark_purple,
+  bubbleArm.copy({
+    color: darkPurple,
     translate: { y: 230 },
   });
 
   // hand
   new Zdog.RoundedRect({
-    addTo: bubble_arm,
+    addTo: bubbleArm,
     height: 32,
     width: 22,
     translate: { x: -8, y: 60 },
@@ -141,7 +141,7 @@ const draw3dAstronaut = () => {
   });
 
   new Zdog.RoundedRect({
-    addTo: bubble_arm,
+    addTo: bubbleArm,
     height: 24,
     width: 0,
     translate: { x: 24, y: 50 },
@@ -167,17 +167,17 @@ const draw3dAstronaut = () => {
     cornerRadius: 0.05,
   });
 
-  // bubble_leg
-  const bubble_leg = new Zdog.Shape({
+  // bubbleLeg
+  const bubbleLeg = new Zdog.Shape({
     addTo: leg,
     path: [{ x: -28 }, { x: 28 }],
     stroke: 32,
-    color: light_purple,
+    color: lightPurple,
     translate: { y: 100 },
   });
 
-  bubble_leg.copy({
-    color: dark_purple,
+  bubbleLeg.copy({
+    color: darkPurple,
     translate: { y: 124 },
   });
 
@@ -218,7 +218,7 @@ const draw3dAstronaut = () => {
     width: 210,
     height: 165,
     cornerRadius: 64,
-    color: dark_navy,
+    color: darkNavy,
     fill: true,
     backface: false,
     translate: { z: 20 },
@@ -257,16 +257,16 @@ const draw3dAstronaut = () => {
     path: [{ x: -110 }, { x: 110 }],
     translate: { y: 120 },
     stroke: 40,
-    color: light_purple,
+    color: lightPurple,
   });
 
   neck.copy({
     translate: { y: 160 },
-    color: dark_purple,
+    color: darkPurple,
   });
 
   /** extra * */
-  const stripe_1 = new Zdog.Shape({
+  const stripe1 = new Zdog.Shape({
     addTo: body,
     path: [{ x: -20 }, { x: 20 }],
     stroke: 10,
@@ -274,37 +274,37 @@ const draw3dAstronaut = () => {
     color: cheese,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: 320, y: 200, z: -400 },
     color: cheese,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: -220, y: 300, z: -400 },
     color: 'white',
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: -100, y: 400, z: -280 },
-    color: light_purple,
+    color: lightPurple,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: 50, y: -60, z: 150 },
     color: orange,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: -250, y: 80, z: 300 },
-    color: light_purple,
+    color: lightPurple,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: -350, y: -280, z: 175 },
-    color: dark_purple,
+    color: darkPurple,
   });
 
-  stripe_1.copy({
+  stripe1.copy({
     translate: { x: 250, y: -380, z: -175 },
     color: 'white',
   });
@@ -325,6 +325,9 @@ const draw3dAstronaut = () => {
   // start animation
   animate();
 };
+onMounted(() => {
+  draw3dAstronaut();
+});
 onUnmounted(() => {
   cancelAnimationFrame(timer);
   timer = null;

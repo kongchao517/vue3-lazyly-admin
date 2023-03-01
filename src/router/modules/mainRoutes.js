@@ -1,9 +1,10 @@
 /*
- * @Descripttion:主要功能路由
- * @Author: lazyly
- * @Date: 2022-12-20 10:07:03
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-28 19:02:33
+ * @ description:主要功能路由
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:03:51
  */
 import { Array } from '../other/Array';
 import { String } from '../other/String';
@@ -22,6 +23,7 @@ import { HashTable } from '../other/HashTable';
 import { Rest } from '../other/Rest';
 import { Sampling } from '../other/Sampling';
 import { Tree } from '../other/Tree';
+
 export const mainRoutes = [
   {
     path: '/',

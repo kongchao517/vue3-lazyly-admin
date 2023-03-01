@@ -1,9 +1,10 @@
 <!--
- * @Descripttion:公共面包屑
- * @Author: lazyly
- * @Date: 2023-01-12 22:03:10
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-28 16:41:58
+ * @ description:公共面包屑
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:30:36
 -->
 <template>
   <div class="breadcrumb">
@@ -17,8 +18,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useRoute } from 'vue-router';
+
 const route = useRoute();
 console.log('面包屑', route);
 </script>

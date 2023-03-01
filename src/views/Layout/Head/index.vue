@@ -1,9 +1,10 @@
 <!--
- * @Descripttion:公共头部
- * @Author: lazyly
- * @Date: 2023-01-12 22:02:49
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-12 23:13:06
+ * @ description:公共头部
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:30:04
 -->
 <template>
   <div class="head_box">

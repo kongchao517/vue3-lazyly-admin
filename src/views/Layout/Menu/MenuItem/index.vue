@@ -1,24 +1,25 @@
 <!--
- * @Descripttion:
- * @Author: lazyly
- * @Date: 2023-01-28 14:37:22
- * @LastEditors: lazyly
- * @LastEditTime: 2023-01-28 16:17:07
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-01 17:47:24
 -->
 <template>
   <template v-for="item in routes" :key="item.path">
     <template v-if="item.children && item.children.length > 0">
       <el-sub-menu :index="item.path || ''" :disabled="!item.path">
         <template #title>
-          <i class="iconfont layout-icon-size" :class="item.icon" v-if="item.icon" />
+          <i v-if="item.icon" class="iconfont layout-icon-size" :class="item.icon" />
           <el-icon v-else><Check /></el-icon>
           <span>{{ item.meta.title }}</span>
         </template>
         <MenuItem :routes="item.children" />
       </el-sub-menu>
     </template>
-    <el-menu-item :index="item.path || ''" :disabled="!item.path" :title="item.meta.title" v-else>
-      <i class="iconfont layout-icon-size" :class="item.icon" v-if="item.icon" />
+    <el-menu-item v-else :index="item.path || ''" :disabled="!item.path" :title="item.meta.title">
+      <i v-if="item.icon" class="iconfont layout-icon-size" :class="item.icon" />
       <el-icon v-else><Check /></el-icon>
       <template #title>{{ item.meta.title }}</template>
     </el-menu-item>
@@ -26,9 +27,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { Check } from '@element-plus/icons-vue';
-const props = defineProps({
+
+defineProps({
   routes: {
     type: Array,
     default: () => [],
