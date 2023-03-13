@@ -1,9 +1,10 @@
 <!--
- * @Descripttion:
- * @Author: kongchao
- * @Date: 2023-02-21 14:33:54
- * @LastEditors: kongchao
- * @LastEditTime: 2023-02-27 11:51:38
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-03-13 15:25:59
 -->
 <template>
   <router-view v-slot="{ Component }">
@@ -16,10 +17,6 @@
 <script setup></script>
 
 <style lang="scss" scoped>
-* {
-  padding: 0;
-  margin: 0;
-}
 .scale-slide-enter-active,
 .scale-slide-leave-active {
   position: absolute;

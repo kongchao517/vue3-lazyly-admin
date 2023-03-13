@@ -1,37 +1,119 @@
 <!--
- * @ description: 
+ * @ description:
  * @ author: kongchao
  * @ created_at: 2023-02-27 10:36:58
- * @ modified_record: 
+ * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 17:53:44
--->
-<!--
- * @Descripttion:
- * @Author: lazyly
- * @Date: 2022-12-05 10:34:43
- * @LastEditors: kongchao
- * @LastEditTime: 2023-02-21 14:48:57
+ * @ modified_time: 2023-03-13 15:12:01
 -->
 <template>
-  <h2>最大连续1个个数</h2>
-  <p>给定一个二进制数组 nums ， 计算其中最大连续 1 的个数。</p>
-  <p>示例 1： 输入：nums = [1,1,0,1,1,1] 输出：3 解释：开头的两位和最后的三位都是连续 1 ，所以最大连续 1 的个数是 3.</p>
-  <p>示例 2: 输入：nums = [1,0,1,1,0,1] 输出：2</p>
+  <div class="drag-box">
+    <TableList
+      :table-data="dragConfig.tableData"
+      :columns="dragConfig.columns"
+      :row-style="rowStyle"
+      :header-cell-style="headerCellStyle"
+      :btn-data="btnData"
+      :loading="loading"
+      @on-sort="onSort"
+      @on-row="onRow"
+      @on-select="onSelect"
+    >
+      <template #image1="scope">
+        <el-image :src="scope.row.image" style="width: 50px; height: 50px" />
+      </template>
+    </TableList>
+    <Pagination
+      v-model:currentPage="currentPage"
+      v-model:pageSize="pageSize"
+      :total="100"
+      class="pagination"
+    ></Pagination>
+    <Dialog v-model:is-show="isShow" :dialog-width="'60%'" :title="title" @on-submit="onSubmit">
+      <template #form>
+        {{ formData }}
+        <FormList
+          ref="formRef"
+          :label-width="'120px'"
+          :inline="true"
+          :form-column="dragConfig.formColumn"
+          :form-data="formData"
+          @oncheck="formRef.form.validate()"
+        />
+      </template>
+    </Dialog>
+  </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { ref } from 'vue';
+import TableList from '@components/TableList';
+import Pagination from '@components/Pagination';
+import Dialog from '@components/Dialog';
+import FormList from '@components/FormList';
+import { DragConfig } from './config';
 
-onMounted(() => {});
-const findMaxConsecutiveOnes = (nums) => {
-  return Math.max(...nums.join('').split('0')).toString().length;
+const dragConfig = new DragConfig();
+const isShow = ref(false);
+const title = ref('');
+const formData = ref({});
+const formRef = ref(null);
+const currentPage = ref(1);
+const pageSize = ref(10);
+const loading = ref(false);
+
+const onSort = (column) => {
+  console.log('值', column);
 };
-console.log('findMaxConsecutiveOnes([1,1,0,1,1,1])', findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]));
+const onRow = (row) => {
+  console.log('行', row);
+};
+const rowStyle = (row) => {
+  // console.log('rowStyle', row.rowIndex);
+  return row.rowIndex % 2 ? 'background:#FFFFF3' : 'background:#FFFFF9';
+};
+const headerCellStyle = (row) => {
+  console.log('headerRowStyle', row);
+  return { background: '#FFFF99' };
+};
+const onEdit = (index, row) => {
+  console.log('修改', index, row);
+  isShow.value = true;
+  title.value = '修改';
+};
+const onDelete = (index, row) => {
+  isShow.value = true;
+  console.log('删除', index, row);
+};
+const btnData = {
+  attr: { label: '操作', fixed: 'right' },
+  btn: [
+    { id: 1, type: 'primary', label: '修改', handle: (index, row) => onEdit(index, row) },
+    { id: 2, type: 'danger', label: '删除', handle: (index, row) => onDelete(index, row) },
+  ],
+};
+const onSelect = (row) => {
+  console.log('复选框选择', row);
+};
+const onSubmit = () => {
+  formRef.value.form.validate((valid, fields) => {
+    console.log('formRef.value', formData.value);
+    if (valid) {
+      console.log('submit!');
+    } else {
+      console.log('error submit!', fields);
+    }
+  });
+};
 </script>
-<style scoped lang="scss">
-.echartsBox {
-  width: 400px;
-  height: 400px;
+
+<style lang="scss" scoped>
+.drag-box {
+  width: 100%;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
 </style>

@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 17:47:24
+ * @ modified_time: 2023-03-13 14:51:54
 -->
 <template>
   <template v-for="item in routes" :key="item.path">
@@ -48,9 +48,5 @@ export default {
   font-style: normal;
   font-weight: 400;
   color: rgb(255 255 255 / 99.6%);
-}
-:deep(.el-menu) {
-  background: none;
-  border: none;
 }
 </style>

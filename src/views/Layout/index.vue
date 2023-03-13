@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 17:30:43
+ * @ modified_time: 2023-03-13 14:57:41
 -->
 <template>
   <div class="common-layout">
@@ -42,5 +42,12 @@ const isCollapse = ref(false);
   .el-container {
     flex: 1;
   }
+}
+.el-aside {
+  transition: width 0.75s;
+  -webkit-transition: width 0.75s;
+  -moz-transition: width 0.75s;
+  -webkit-transition: width 0.75s;
+  -o-transition: width 0.75s;
 }
 </style>

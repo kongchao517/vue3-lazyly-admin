@@ -4,27 +4,16 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 17:01:15
+ * @ modified_time: 2023-03-13 14:55:26
 -->
 
 <template>
-  <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px">
-		<el-radio-button :label="false">expand</el-radio-button>
-		<el-radio-button :label="true">collapse</el-radio-button>
-	</el-radio-group> -->
   <div class="menu">
     <div class="menu_logo" @click="emit('update:isCollapse', isCollapse ? false : true)">
       <el-icon class="icon"><Ship /></el-icon>
       <div v-if="!isCollapse">力扣1</div>
     </div>
-    <el-menu
-      class="el-menu-vertical-demo"
-      :collapse="isCollapse"
-      router
-      :default-active="defaultActive"
-      text-color="#1d1d1fcc"
-      :collapse-transition="false"
-    >
+    <el-menu :collapse="isCollapse" router :default-active="defaultActive" text-color="#1d1d1f">
       <MenuItem :routes="routes[0].children" />
     </el-menu>
   </div>
@@ -79,11 +68,6 @@ const defaultActive = computed(() => route.path);
       font-weight: 700;
     }
   }
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    z-index: 1;
-    width: 200px;
-    height: calc(100vh - 115px);
-  }
 }
 :deep(.el-menu) {
   background: none;
@@ -96,8 +80,9 @@ const defaultActive = computed(() => route.path);
   font-weight: 400;
   color: rgb(255 255 255 / 99.6%);
 }
+
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 0px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: #00000033;
