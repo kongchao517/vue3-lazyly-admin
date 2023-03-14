@@ -1,0 +1,72 @@
+{
+  "id": "3949984",
+  "name": "ShopBackstage",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "商城后台",
+  "glyphs": [
+    {
+      "icon_id": "4657691",
+      "name": "展开",
+      "font_class": "zhankai-",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "19662663",
+      "name": "收起",
+      "font_class": "shouqi",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "1047496",
+      "name": "订单管理",
+      "font_class": "dingdanguanli",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "1047497",
+      "name": "系统管理",
+      "font_class": "xitongguanli",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "3702619",
+      "name": "角色管理",
+      "font_class": "navicon-jsgl",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "7474657",
+      "name": "商品管理",
+      "font_class": "shangpinguanli",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "8286865",
+      "name": "菜单管理",
+      "font_class": "caidanguanli",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "12548446",
+      "name": "权限管理",
+      "font_class": "quanxianguanli-",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "26876073",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "ea49",
+      "unicode_decimal": 59977
+    }
+  ]
+}

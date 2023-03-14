@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 14:57:41
+ * @ modified_time: 2023-03-13 22:38:43
 -->
 <template>
   <div class="common-layout">
@@ -14,7 +14,7 @@
       </el-aside>
       <el-container>
         <el-header>
-          <Head />
+          <Head v-model:isCollapse="isCollapse" />
           <Tabs />
         </el-header>
         <el-main><router-view /></el-main>

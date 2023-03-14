@@ -4,10 +4,11 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 15:12:01
+ * @ modified_time: 2023-03-14 10:42:20
 -->
 <template>
   <div class="drag-box">
+    <i class="iconfont icon-navicon-jsgl" />
     <TableList
       :table-data="dragConfig.tableData"
       :columns="dragConfig.columns"
@@ -69,12 +70,14 @@ const onRow = (row) => {
   console.log('行', row);
 };
 const rowStyle = (row) => {
-  // console.log('rowStyle', row.rowIndex);
-  return row.rowIndex % 2 ? 'background:#FFFFF3' : 'background:#FFFFF9';
+  console.log('rowStyle', row);
+  // return row.rowIndex % 2 === 0 ? 'background:#FFFFF3' : 'background:#FFFFF9';
+  return {};
 };
 const headerCellStyle = (row) => {
   console.log('headerRowStyle', row);
-  return { background: '#FFFF99' };
+  // return { background: '#FFFF99' };
+  return {};
 };
 const onEdit = (index, row) => {
   console.log('修改', index, row);
@@ -115,5 +118,23 @@ const onSubmit = () => {
   display: flex;
   justify-content: center;
   padding-top: 20px;
+}
+.infinite-list {
+  height: 300px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.infinite-list .infinite-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  background: var(--el-color-primary-light-9);
+  margin: 10px;
+  color: var(--el-color-primary);
+}
+.infinite-list .infinite-list-item + .list-item {
+  margin-top: 10px;
 }
 </style>

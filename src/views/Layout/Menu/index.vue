@@ -4,14 +4,14 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 14:55:26
+ * @ modified_time: 2023-03-13 21:34:59
 -->
 
 <template>
   <div class="menu">
     <div class="menu_logo" @click="emit('update:isCollapse', isCollapse ? false : true)">
       <el-icon class="icon"><Ship /></el-icon>
-      <div v-if="!isCollapse">力扣1</div>
+      <div v-if="!isCollapse">LeetCode</div>
     </div>
     <el-menu :collapse="isCollapse" router :default-active="defaultActive" text-color="#1d1d1f">
       <MenuItem :routes="routes[0].children" />
@@ -50,14 +50,12 @@ const defaultActive = computed(() => route.path);
   background: url('@assets/image/menu_bg.svg') no-repeat;
   background-size: cover;
   .menu_logo {
-    position: relative;
-    top: 25px;
-    width: 50px;
-    height: 115px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: #ffffff;
-    text-align: center;
     cursor: pointer;
+    padding: 20px 0;
     .icon {
       font-size: 36px;
     }
@@ -73,12 +71,24 @@ const defaultActive = computed(() => route.path);
   background: none;
   border: none;
 }
+:deep(.el-menu-item:hover) {
+  background-color: rgba(250, 38, 90, 0.1);
+}
+:deep(.el-menu-item) {
+  color: #ffffff;
+}
+:deep(.el-menu-item.is-active) {
+  background-color: rgba(250, 38, 90, 0.1);
+}
 :deep(.el-sub-menu__title) {
   font-family: '微软雅黑', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  color: rgb(255 255 255 / 99.6%);
+  color: rgb(255 255 255 / 99.6%) !important;
+  &:hover {
+    background-color: rgba(250, 38, 90, 0.1);
+  }
 }
 
 ::-webkit-scrollbar {

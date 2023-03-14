@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-01 22:52:30
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-09 18:23:14
+ * @ modified_time: 2023-03-13 17:41:43
  */
 import Background from '@assets/image/home/background_1.png';
 import CardBg from '@assets/image/home/card-bg.png';
@@ -21,7 +21,6 @@ export class DragConfig {
       age: '25',
       sex: '男',
       image: Background,
-      children: [{ id: 10, label: '嵌套', age: '25', sex: '男', image: CardBg }],
     },
     { id: 2, label: '李四', age: '25', sex: '男', image: CardBg },
     { id: 3, label: '王五', age: '25', sex: '男', image: CardWangk },

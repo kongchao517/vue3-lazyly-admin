@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 15:25:59
+ * @ modified_time: 2023-03-13 21:14:23
 -->
 <template>
   <router-view v-slot="{ Component }">
@@ -36,6 +36,6 @@
 }
 
 .scale-slide-leave-to {
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 </style>
