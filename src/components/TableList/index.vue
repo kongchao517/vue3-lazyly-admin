@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-02 13:55:10
  * @ modified_record:表格的属性都是父组件传过来，方法子传父
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 10:27:22
+ * @ modified_time: 2023-03-15 16:12:15
 -->
 <template>
   <el-table
@@ -21,7 +21,7 @@
     <template v-for="item in columns" :key="item.id">
       <!--自定义插槽-->
       <template v-if="item.slotType">
-        <el-table-column :prop="item.prop" :label="item.label">
+        <el-table-column :prop="item.prop" :label="item.label" v-bind="item.attr">
           <template #default="scope">
             <slot :name="item.slotType" :row="scope.row" />
           </template>

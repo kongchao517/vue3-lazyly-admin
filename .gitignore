@@ -11,11 +11,14 @@ node_modules
 .DS_Store
 dist
 dist-ssr
+vue3-lazyly-admin
+.vite-cache
+docker
 *.local
 
 /cypress/videos/
 /cypress/screenshots/
-
+l
 # Editor directories and files
 .idea
 *.suo

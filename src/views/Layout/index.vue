@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 22:38:43
+ * @ modified_time: 2023-03-15 15:34:37
 -->
 <template>
   <div class="common-layout">
@@ -17,7 +17,11 @@
           <Head v-model:isCollapse="isCollapse" />
           <Tabs />
         </el-header>
-        <el-main><router-view /></el-main>
+        <el-main>
+          <el-scrollbar style="height: calc(100vh - 125px)">
+            <router-view />
+          </el-scrollbar>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -42,6 +46,10 @@ const isCollapse = ref(false);
   .el-container {
     flex: 1;
   }
+}
+
+.el-main {
+  padding-top: 45px;
 }
 .el-aside {
   transition: width 0.75s;

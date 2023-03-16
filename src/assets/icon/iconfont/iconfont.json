@@ -6,6 +6,13 @@
   "description": "商城后台",
   "glyphs": [
     {
+      "icon_id": "7269299",
+      "name": "流程-默认",
+      "font_class": "liucheng-moren",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
       "icon_id": "4657691",
       "name": "展开",
       "font_class": "zhankai-",

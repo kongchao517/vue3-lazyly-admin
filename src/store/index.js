@@ -5,10 +5,13 @@
  * @LastEditors: lazyly
  * @LastEditTime: 2022-12-05 14:06:08
  */
-import { createPinia } from 'pinia';
 
-const store = createPinia();
-
-export default store;
-
-export * from './modules/counter';
+import { useCounterStore } from './modules/counter';
+import { useTagStore } from './modules/tag';
+// 统一导出useStore方法
+export default function useStore() {
+  return {
+    count: useCounterStore(),
+    tabData: useTagStore(),
+  };
+}

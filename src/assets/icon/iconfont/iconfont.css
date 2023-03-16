@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3949984 */
-  src: url('iconfont.woff2?t=1678717882218') format('woff2'),
-       url('iconfont.woff?t=1678717882218') format('woff'),
-       url('iconfont.ttf?t=1678717882218') format('truetype');
+  src: url('iconfont.woff2?t=1678790579644') format('woff2'),
+       url('iconfont.woff?t=1678790579644') format('woff'),
+       url('iconfont.ttf?t=1678790579644') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-liucheng-moren:before {
+  content: "\e618";
 }
 
 .icon-zhankai-:before {

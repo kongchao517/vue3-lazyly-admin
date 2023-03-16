@@ -4,18 +4,27 @@
  * @ created_at: 2023-02-27 10:36:59
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 18:15:06
+ * @ modified_time: 2023-03-15 17:06:07
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
 // 图片压缩
 import viteImagemin from 'vite-plugin-imagemin';
 import vue from '@vitejs/plugin-vue';
+// element-plus按需加载
+import AutoImport from 'unplugin-auto-import/vite';
+import Components from 'unplugin-vue-components/vite';
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+
+// 开启gzip压缩
+import viteCompression from 'vite-plugin-compression';
 
 export default ({ mode }) => {
   const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
 
   return defineConfig({
+    // 开启缓存
+    cacheDir: '.vite-cache',
     base: VITE_BASE_URL,
     plugins: [
       vue(),
@@ -45,6 +54,16 @@ export default ({ mode }) => {
             },
           ],
         },
+      }),
+      viteCompression({
+        // 是否删除源文件
+        deleteOriginFile: true,
+      }),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
       }),
     ],
     resolve: {
@@ -94,7 +113,7 @@ export default ({ mode }) => {
       // 		drop_debugger: true
       // 	}
       // },
-      // outDir: "service-center-backstage",
+      outDir: 'vue3-lazyly-admin',
       rollupOptions: {
         output: {
           // 静态资源分类打包
