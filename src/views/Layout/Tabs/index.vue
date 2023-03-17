@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-14 17:34:48
+ * @ modified_time: 2023-03-16 15:31:32
 -->
 <template>
   <el-scrollbar style="height: 50px">
@@ -45,7 +45,7 @@ const onTag = (path) => {
 <style scoped lang="scss">
 .tabs {
   display: flex;
-  padding: 5px 0;
+  padding: 5px 15px;
   cursor: pointer;
   .mx-1 {
     flex-shrink: 0;

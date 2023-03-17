@@ -4,10 +4,11 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-15 16:17:50
+ * @ modified_time: 2023-03-16 15:27:57
  */
 
 import { System } from '../other/System';
+import { Echarts } from '../other/echarts';
 
 export const mainRoutes = [
   {
@@ -15,6 +16,6 @@ export const mainRoutes = [
     name: 'Layout',
     component: () => import('@views/Layout'),
     redirect: { path: '/array' },
-    children: [...System],
+    children: [...System, ...Echarts],
   },
 ];
