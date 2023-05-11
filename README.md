@@ -9,7 +9,6 @@
 
 
 ## 特性
-+ :pary:1
 + ⚡️ [Vite 3](https://cn.vitejs.dev) - 构建工具（就是快！）
 + 🖖 [Vue 3](https://cn.vuejs.org) - 渐进式 JavaScript 框架
 + 🚦 [Vue Router](https://router.vuejs.org/zh) - 官方路由管理器
