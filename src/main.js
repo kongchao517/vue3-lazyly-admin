@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-11 11:43:53
+ * @ modified_time: 2023-05-11 15:14:50
  */
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
@@ -15,6 +15,7 @@ import '@assets/icon/iconfont/iconfont.css';
 import 'animate.css';
 import '../mock/index';
 import installEcharts from './plugins/echarts';
+import 'vue-global-api';
 
 const pinia = createPinia();
 const app = createApp(App);

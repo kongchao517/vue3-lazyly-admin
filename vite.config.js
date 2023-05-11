@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:59
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-08 10:00:07
+ * @ modified_time: 2023-05-11 15:19:35
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
@@ -62,6 +62,7 @@ export default ({ mode }) => {
       }),
       AutoImport({
         resolvers: [ElementPlusResolver()],
+        dts: 'auto-imports.d.ts',
       }),
       Components({
         resolvers: [ElementPlusResolver()],

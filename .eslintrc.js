@@ -1,3 +1,11 @@
+/*
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-05-11 15:14:38
+ */
 const { defineConfig } = require('eslint-define-config');
 
 module.exports = defineConfig({
@@ -24,6 +32,7 @@ module.exports = defineConfig({
     'plugin:vue/vue3-essential',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
+    'vue-global-api',
   ],
   rules: {
     // ""off""或0 -关闭规则

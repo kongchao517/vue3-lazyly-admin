@@ -1,3 +1,11 @@
+<!--
+ * @description: 
+ * @author: kongchao
+ * @created_at: 2023-02-21 13:32:38
+ * @modified_record: 
+ * @modified_by: kongchao
+ * @modified_time: 2023-05-11 15:28:19
+-->
 
 
 ## 特性
@@ -47,6 +55,28 @@ npm run dev / yarn dev
 npm run build:dev / yarn build:dev
 #### 构建生产环境
 npm run build / yarn build
+
+# 自动引入ref、reactive......
+ 
+ yarn add unplugin-auto-import
+
+ vite.config.js
+    import AutoImport from 'unplugin-auto-import/vite';
+    plugins:[ AutoImport({
+        dts: 'auto-imports.d.ts',
+      }),]
+
+删除无引入ref、reactive...eslint警告
+yarn add vue-global-api
+.eslintrc.js
+    extends: [
+    'vue-global-api',
+    ]
+    
+main.js 
+import 'vue-global-api';
+
+auto-imports.d
 
 
 
