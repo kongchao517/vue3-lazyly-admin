@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-16 15:22:51
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-16 18:27:51
+ * @ modified_time: 2023-03-17 14:53:58
 -->
 <template>
   <div ref="main" style="width: 100vw; height: 100vh"></div>
@@ -13,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import * as echarts from 'echarts';
+import logos from '@assets/image/home/card-bg.png';
 import { treeData } from './tree';
 
 const main = ref(null);
@@ -33,12 +34,20 @@ const init = () => {
         left: '10%',
         bottom: '1%',
         right: '20%',
-        symbolSize: 24,
-        symbol: 'circle',
+        symbolSize: 14,
+        // symbol: 'circle',
+        // symbol: `image://${logo}`,
+        symbol(value, params) {
+          console.log('params', value, params);
+          return params.collapsed
+            ? `path://M480 480V128a32 32 0 0 1 64 0v352h352a32 32 0 1 1 0 64H544v352a32 32 0 1 1-64 0V544H128a32 32 0 0 1 0-64h352z`
+            : `image://${logos}`;
+          // params.data节点的所有数据
+        },
         // 是否缩放
         // roam: true,
         label: {
-          position: [-70, 10],
+          position: [-65, 5],
           verticalAlign: 'middle',
           align: 'center',
           fontSize: 9,

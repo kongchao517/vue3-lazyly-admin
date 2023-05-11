@@ -7,9 +7,8 @@
  * @ modified_time: 2023-03-08 16:07:35
 -->
 <template>
-  <el-select v-model="value" :placeholder="formComponent.placeholder" clearable>
-    <el-option v-for="item in formComponent.selectData" :key="item.value" :label="item.label" :value="item.value">
-    </el-option>
+  <el-select v-model="value" :placeholder="attr.placeholder" clearable>
+    <el-option v-for="item in attr.selectData" :key="item.value" :label="item.label" :value="item.value"> </el-option>
   </el-select>
 </template>
 
@@ -21,7 +20,7 @@ const props = defineProps({
     type: String,
     default: () => '',
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },

@@ -2,12 +2,12 @@
  * @ description:时间组件
  * @ author: kongchao
  * @ created_at: 2023-03-09 11:07:23
- * @ modified_record:对应属性 formComponent
+ * @ modified_record:对应属性 attr
  * @ modified_by: kongchao
  * @ modified_time: 2023-03-09 11:12:29
 -->
 <template>
-  <el-date-picker v-model="value" v-bind="formComponent" />
+  <el-date-picker v-model="value" v-bind="attr" />
 </template>
 
 <script setup>
@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     default: () => '',
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },

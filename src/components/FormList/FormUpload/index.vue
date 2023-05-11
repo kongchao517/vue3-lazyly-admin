@@ -25,7 +25,7 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },

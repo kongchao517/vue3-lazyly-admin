@@ -8,7 +8,7 @@
 -->
 <template>
   <el-radio-group v-model="value">
-    <el-radio v-for="(item, index) in formComponent.radioData" :key="index" :label="item.value" size="small">{{
+    <el-radio v-for="(item, index) in attr.radioData" :key="index" :label="item.value" size="small">{{
       item.label
     }}</el-radio>
   </el-radio-group>
@@ -22,7 +22,7 @@ const props = defineProps({
     type: String,
     default: () => '',
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },

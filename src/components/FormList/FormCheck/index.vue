@@ -4,11 +4,11 @@
  * @ created_at: 2023-03-09 10:33:50
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-09 10:44:55
+ * @ modified_time: 2023-05-09 17:53:23
 -->
 <template>
   <el-checkbox-group v-model="value">
-    <el-checkbox v-for="(item, index) in formComponent.checkData" :key="index" :label="item.value">
+    <el-checkbox v-for="(item, index) in attr.checkData" :key="index" :label="item.value">
       {{ item.label }}
     </el-checkbox>
   </el-checkbox-group>
@@ -22,7 +22,7 @@ const props = defineProps({
     type: Array,
     default: () => [],
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },

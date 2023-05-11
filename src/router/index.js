@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-01 17:13:28
+ * @ modified_time: 2023-05-09 16:16:06
  */
 import { createRouter, createWebHistory } from 'vue-router';
 
@@ -25,4 +25,19 @@ const router = createRouter({
   },
 });
 
+// router.beforeEach((to, from, next) => {
+
+//   if (to.name === 'Login') {
+//     next();
+
+//     return true;
+//   }
+
+//   next({
+//     name: 'Login',
+//     query: {
+//       redirect: to.fullPath ?? '/',
+//     },
+//   });
+// });
 export default router;

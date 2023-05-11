@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-09 11:19:00
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-13 13:50:46
+ * @ modified_time: 2023-05-09 17:35:51
 -->
 <template>
   <div style="border: 1px solid #ccc">
@@ -15,7 +15,7 @@
       style="height: 500px; overflow-y: hidden"
       :default-config="editorConfig"
       @on-created="handleCreated"
-      @on-blur="onCheck"
+      @on-change="onChange"
     />
   </div>
 </template>
@@ -31,7 +31,7 @@ const props = defineProps({
     type: String,
     default: () => '',
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },
@@ -112,19 +112,18 @@ const editorConfig = {
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
   const editor = editorRef.value;
-  if (editor == null) return;
+  if (editor === null || editor === '<p><br></p>') return;
   editor.destroy();
 });
 
 const handleCreated = (editor) => {
   editorRef.value = editor; // 记录 editor 实例，重要！
 };
-const onCheck = (val) => {
-  console.log('val', val);
-  if (val.isEmpty()) {
-    editValue.value = '<p>请输入</p>';
+const onChange = () => {
+  // editorRef.value.getText() 获取富文本编辑器的内容 .trim() 去掉空格
+  if (editorRef.value.getText().trim().length === 0) {
+    editValue.value = '';
   }
-  emits('onCheck');
 };
 </script>
 

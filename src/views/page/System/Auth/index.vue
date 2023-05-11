@@ -4,12 +4,12 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-15 16:16:28
+ * @ modified_time: 2023-05-11 11:42:32
 -->
 <template>
   <div class="drag-box">
     <TableList
-      :table-data="dragConfig.tableData.value"
+      :table-data="dragConfig.tableData"
       :columns="dragConfig.columns"
       :row-style="rowStyle"
       :header-cell-style="headerCellStyle"
@@ -39,22 +39,25 @@
           :form-column="dragConfig.formColumn"
           :form-data="formData"
           @oncheck="formRef.form.validate()"
-        />
+        >
+        </FormList>
       </template>
     </Dialog>
+    <Swiper />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, reactive } from 'vue';
 import TableList from '@components/TableList';
 import Pagination from '@components/Pagination';
 import Dialog from '@components/Dialog';
 import FormList from '@components/FormList';
 import { getMenu } from '@api/user';
+import Swiper from '@components/Swiper';
 import { DragConfig } from './config';
 
-const dragConfig = new DragConfig();
+const dragConfig = reactive(new DragConfig());
 const isShow = ref(false);
 const title = ref('');
 const formData = ref({});
@@ -112,7 +115,7 @@ const init = async () => {
   const page = { page: 1, size: 10 };
   const res = await getMenu(JSON.stringify(page));
   console.log('Res', res);
-  dragConfig.tableData.value = res.list;
+  dragConfig.tableData = res.list;
 };
 init();
 </script>

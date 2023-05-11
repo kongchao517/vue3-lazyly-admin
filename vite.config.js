@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:59
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-15 17:06:07
+ * @ modified_time: 2023-05-08 10:00:07
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
@@ -23,8 +23,6 @@ export default ({ mode }) => {
   const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
 
   return defineConfig({
-    // 开启缓存
-    cacheDir: '.vite-cache',
     base: VITE_BASE_URL,
     plugins: [
       vue(),
@@ -56,6 +54,9 @@ export default ({ mode }) => {
         },
       }),
       viteCompression({
+        // 过滤器，对哪些类型的文件进行压缩，默认为 /.(js|mjs|json|css|html)$/i
+        filter: '/.(js|mjs|json|css|html)$/i',
+        verbose: true,
         // 是否删除源文件
         deleteOriginFile: true,
       }),

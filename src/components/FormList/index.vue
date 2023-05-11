@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-06 14:30:38
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-09 18:33:54
+ * @ modified_time: 2023-05-09 17:53:43
 -->
 <template>
   <el-form ref="form" :model="formData" :inline="inline" :label-width="labelWidth">
@@ -12,11 +12,15 @@
       <el-col v-for="(item, index) in formColumn" :key="index" :span="item.span" :offset="item.offset">
         <el-form-item :label="item.label" :prop="item.prop" :rules="item.rules">
           <component
-            :is="componentsTypes[item.type]"
+            :is="componentType[item.type]"
+            v-if="!item.slotType"
             v-model="formDataValue[item.prop]"
-            :form-component="item.formComponent"
-            @on-check="onCheck"
-          ></component>
+            :attr="item.attr"
+          />
+          <template v-else>
+            <!--自定义插槽 -- 任意form-->
+            <slot :name="item.slotType"></slot>
+          </template>
         </el-form-item>
       </el-col>
     </el-row>
@@ -65,7 +69,7 @@ const formDataValue = computed({
     emits('update:formData', val);
   },
 });
-const componentsTypes = markRaw({
+const componentType = markRaw({
   FormRadio,
   FormInput,
   FormSelect,
@@ -74,16 +78,6 @@ const componentsTypes = markRaw({
   FormEditor,
   FormUpload,
 });
-const onCheck = () => {
-  console.log(' form.value', form.value.validate());
-  form.value.validate((valid, fields) => {
-    if (valid) {
-      console.log('submit!');
-    } else {
-      console.log('error submit!', fields);
-    }
-  });
-};
 defineExpose({
   form,
 });

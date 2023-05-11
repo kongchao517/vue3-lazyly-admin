@@ -1,40 +1,44 @@
 /*
- * @Descripttion:
- * @Author: lazyly
- * @Date: 2023-01-16 11:41:18
- * @LastEditors: kongchao
- * @LastEditTime: 2023-02-21 14:40:17
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:58
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-05-09 18:46:30
  */
-import * as echarts from 'echarts/core';
-// 引入柱状图图表，图表后缀都为 Chart
-import { BarChart } from 'echarts/charts';
-// 引入提示框，标题，直角坐标系，数据集，内置数据转换器组件，组件后缀都为 Component
+import { use } from 'echarts/core';
+import { BarChart, PieChart, LineChart } from 'echarts/charts';
 import {
   TitleComponent,
   TooltipComponent,
+  LegendComponent,
   GridComponent,
   DatasetComponent,
   TransformComponent,
 } from 'echarts/components';
-// 标签自动布局、全局过渡动画等特性
 import { LabelLayout, UniversalTransition } from 'echarts/features';
-// 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
-import { CanvasRenderer } from 'echarts/renderers';
+import { CanvasRenderer, SVGRenderer } from 'echarts/renderers';
+import VChart from 'vue-echarts';
 
 // 注册必须的组件
-echarts.use([
+use([
   TitleComponent,
+  LegendComponent,
   TooltipComponent,
   GridComponent,
   DatasetComponent,
   TransformComponent,
   BarChart,
+  PieChart,
+  LineChart,
   LabelLayout,
   UniversalTransition,
   CanvasRenderer,
+  SVGRenderer,
 ]);
+
 export default {
   install: (app) => {
-    app.use(echarts);
+    app.component('VChart', VChart);
   },
 };

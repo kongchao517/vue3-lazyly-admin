@@ -4,10 +4,10 @@
  * @ created_at: 2023-03-08 15:09:50
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-08 15:21:44
+ * @ modified_time: 2023-05-09 17:38:22
 -->
 <template>
-  <el-input v-model="value" :placeholder="formComponent.placeholder" clearable />
+  <el-input v-model="value" :placeholder="attr.placeholder" clearable />
 </template>
 
 <script setup>
@@ -18,7 +18,7 @@ const props = defineProps({
     type: String,
     default: () => '',
   },
-  formComponent: {
+  attr: {
     type: Object,
     default: () => {},
   },
