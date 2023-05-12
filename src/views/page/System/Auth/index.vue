@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:58
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-11 15:15:02
+ * @ modified_time: 2023-05-12 11:10:03
 -->
 <template>
   <div class="drag-box">
@@ -22,6 +22,7 @@
       <template #image1="scope">
         <el-image :src="scope.row.image" style="width: 30px; height: 30px" />
       </template>
+      <template #iconHead> 表头插槽 </template>
     </TableList>
     <Pagination
       v-model:currentPage="currentPage"

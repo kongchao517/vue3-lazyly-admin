@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-01 22:52:30
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-09 17:48:45
+ * @ modified_time: 2023-05-12 11:16:53
  */
 
 export class DragConfig {
@@ -24,7 +24,13 @@ export class DragConfig {
       slotType: 'image1',
       attr: { align: 'center' },
     },
-    { id: 6, props: 'icon', label: '图标', slotType: 'icon', attr: { align: 'center', width: '40px' } },
+    {
+      id: 6,
+      props: 'icon',
+      label: '图标',
+      slotHead: 'iconHead',
+      attr: { align: 'center', width: '140px' },
+    },
   ];
 
   /*

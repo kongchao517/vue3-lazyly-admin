@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:59
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-11 15:19:35
+ * @ modified_time: 2023-05-12 18:55:49
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
@@ -58,7 +58,7 @@ export default ({ mode }) => {
         filter: '/.(js|mjs|json|css|html)$/i',
         verbose: true,
         // 是否删除源文件
-        deleteOriginFile: true,
+        deleteOriginFile: false,
       }),
       AutoImport({
         resolvers: [ElementPlusResolver()],

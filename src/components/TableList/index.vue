@@ -4,7 +4,7 @@
  * @ created_at: 2023-03-02 13:55:10
  * @ modified_record:表格的属性都是父组件传过来，方法子传父
  * @ modified_by: kongchao
- * @ modified_time: 2023-03-15 16:12:15
+ * @ modified_time: 2023-05-12 11:22:32
 -->
 <template>
   <el-table
@@ -19,14 +19,18 @@
     @select="onSelect"
   >
     <template v-for="item in columns" :key="item.id">
-      <!--自定义插槽-->
-      <template v-if="item.slotType">
-        <el-table-column :prop="item.prop" :label="item.label" v-bind="item.attr">
-          <template #default="scope">
-            <slot :name="item.slotType" :row="scope.row" />
-          </template>
-        </el-table-column>
-      </template>
+      <el-table-column v-if="item.slotType" :prop="item.prop" :label="item.label" v-bind="item.attr">
+        <!--自定义表体插槽-->
+        <template #default="scope">
+          <slot :name="item.slotType" :row="scope.row" />
+        </template>
+      </el-table-column>
+      <el-table-column v-else-if="item.slotHead" :prop="item.props" :label="item.label" v-bind="item.attr">
+        <!--自定义表头插槽-->
+        <template #header>
+          <slot :name="item.slotHead" />
+        </template>
+      </el-table-column>
       <el-table-column v-else :prop="item.props" :label="item.label" v-bind="item.attr" />
     </template>
     <!--操作栏属性及按钮-->
@@ -60,7 +64,7 @@ defineProps({
     type: Array,
     default: () => [],
   },
-  // 行样式
+  // 行样式 --用于隔行变色
   rowStyle: {
     type: Function,
     default: () => {},
