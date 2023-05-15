@@ -14,6 +14,7 @@ dist-ssr
 vue3-lazyly-admin
 .vite-cache
 *.local
+.husky
 
 /cypress/videos/
 /cypress/screenshots/
