@@ -1,3 +1,11 @@
+/*
+ * @ description:
+ * @ author: kongchao
+ * @ created_at: 2023-02-27 10:36:59
+ * @ modified_record:
+ * @ modified_by: kongchao
+ * @ modified_time: 2023-05-15 13:43:27
+ */
 module.exports = {
   root: true,
   defaultSeverity: 'error',
@@ -48,10 +56,10 @@ module.exports = {
     'value-no-vendor-prefix': null,
     // 要求或禁止在规则之前的空行
     'rule-empty-line-before': ['always', { ignore: ['after-comment', 'first-nested'] }],
-    // 指定字符串使用单引号
-    'string-quotes': 'single',
     // 指定@规则名的大小写
     'at-rule-name-case': 'lower',
+    // 指定字符串使用单引号
+    'string-quotes': 'single',
     // 指定缩进
     indentation: [2, { severity: 'warning' }],
   },
