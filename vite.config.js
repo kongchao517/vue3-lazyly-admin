@@ -4,7 +4,7 @@
  * @ created_at: 2023-02-27 10:36:59
  * @ modified_record:
  * @ modified_by: kongchao
- * @ modified_time: 2023-05-12 18:55:49
+ * @ modified_time: 2023-05-15 14:24:52
  */
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'path';
