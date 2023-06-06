@@ -14,7 +14,7 @@ export const mainRoutes = [
   {
     path: '/',
     name: 'Layout',
-    component: () => import('@views/Layout'),
+    component: () => import('../../views/Layout/index.vue'),
     redirect: { path: '/system-menu' },
     children: [...System, ...Echarts],
   },

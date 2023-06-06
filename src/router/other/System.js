@@ -19,7 +19,7 @@ export const System = [
       {
         path: '/system-menu',
         name: 'SystemMenu',
-        component: () => import('@page/System/Auth'),
+        component: () => import('../../views/page/System/Auth/index.vue'),
         meta: {
           title: '菜单管理',
           icon: 'icon-quanxianguanli-',
@@ -28,7 +28,7 @@ export const System = [
       {
         path: '/system-role',
         name: 'SystemRole',
-        component: () => import('@page/System/Role'),
+        component: () => import('../../views/page/System/Role/index.vue'),
         meta: {
           title: '角色管理',
           icon: 'icon-navicon-jsgl',
@@ -37,7 +37,7 @@ export const System = [
       {
         path: '/system-user',
         name: 'SystemUser',
-        component: () => import('@page/System/User'),
+        component: () => import('../../views/page/System/User/index.vue'),
         meta: {
           title: '用户管理',
           icon: 'icon-yonghuguanli',

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@plugins/*": ["src/plugins/*"],
+      "@components/*": ["src/components/*/index.vue"],
+      "@router/*": ["src/router/*"],
+      "@views/*": ["src/views/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/*"],
+      "@api/*": ["src/api/*"],
+      "@g/*": ["src/global/*"],
+      "@Page/*": ["src/views/Page/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist", "vite.config.js"]
+}

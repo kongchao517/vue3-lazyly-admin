@@ -11,12 +11,12 @@ export const globalRoutes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/User/index.vue'),
+    component: () => import('../../views/User/index.vue'),
   },
   {
     path: '/Error',
     name: 'Error',
-    component: () => import('@/views/Error/index.vue'),
+    component: () => import('../../views/Error/index.vue'),
   },
   {
     path: '/:catchAll(.*)', // 不识别的path自动匹配404

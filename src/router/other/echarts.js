@@ -19,7 +19,7 @@ export const Echarts = [
       {
         path: '/echarts',
         name: 'Echarts',
-        component: () => import('@page/Echarts'),
+        component: () => import('../../views/page/Echarts/index.vue'),
         meta: {
           title: '图表',
           icon: 'icon-quanxianguanli-',
