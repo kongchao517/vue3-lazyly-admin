@@ -7,10 +7,10 @@
  * @ modified_time: 2023-03-16 15:31:32
 -->
 <template>
-  <el-scrollbar style="height: 50px">
-    <div class="tabs">
+  <el-scrollbar class="tab-box">
+    <TransitionGroup key="dd" tag="ul" name="fade" class="tabs">
       <el-tag
-        v-for="(item, index) in tabData.tabMenuData"
+        v-for="(item, index) in tabData"
         :key="item.path + index"
         class="mx-1"
         :effect="item.path === route.path ? 'dark' : 'light'"
@@ -22,7 +22,7 @@
       >
         {{ item.meta.title }}
       </el-tag>
-    </div>
+    </TransitionGroup>
   </el-scrollbar>
 </template>
 
@@ -30,29 +30,62 @@
 import useStore from '@store';
 import { useRoute, useRouter } from 'vue-router';
 
-const { tabData } = useStore();
-
+const store = useStore();
+const tabData = computed(() => store.tabData.tabMenuData);
 const route = useRoute();
 const router = useRouter();
-console.log('route', route);
-const handleClose = (path) => {
-  tabData.removeTab(path);
-};
 const onTag = (path) => {
   router.push(path);
 };
+const handleClose = (path) => {
+  store.tabData.removeTab(path);
+  const presentTab = route.matched?.slice(-1)[0]?.path;
+  if (presentTab === path) router.push(tabData.value[0]?.path || '/');
+};
 </script>
 <style scoped lang="scss">
-.tabs {
-  display: flex;
-  padding: 5px 15px;
-  cursor: pointer;
-  .mx-1 {
-    flex-shrink: 0;
+.tab-box {
+  position: relative;
+  top: -10px;
+  .tabs {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px;
+    padding: 5px 15px;
+    cursor: pointer;
+    .mx-1 {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+    }
   }
+}
+:deep(.el-scrollbar__bar.is-horizontal) {
+  height: 3px;
+}
+:deep(.el-scrollbar__bar.is-vertical) {
+  width: 0;
+}
+:deep(.el-scrollbar__wrap) {
+  height: none;
+}
+/* 1. 声明过渡效果 */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. 声明进入和离开的状态 */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scaleY(0.01) translate(30px, 0);
+}
+
+/* 3. 确保离开的项目被移除出了布局流
+          以便正确地计算移动时的动画效果。 */
+.fade-leave-active {
+  position: absolute;
 }
 </style>
