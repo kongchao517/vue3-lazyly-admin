@@ -20,42 +20,15 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import viteCompression from 'vite-plugin-compression';
 
 export default ({ mode }) => {
-  const { VITE_PORT, VITE_BASE_URL } = loadEnv(mode, process.cwd());
+  const { VITE_BASE_URL } = loadEnv(mode, process.cwd());
 
   return defineConfig({
     base: VITE_BASE_URL,
     plugins: [
       vue(),
-      viteImagemin({
-        gifsicle: {
-          optimizationLevel: 7,
-          interlaced: false,
-        },
-        optipng: {
-          optimizationLevel: 7,
-        },
-        mozjpeg: {
-          quality: 20,
-        },
-        pngquant: {
-          quality: [0.8, 0.9],
-          speed: 4,
-        },
-        svgo: {
-          plugins: [
-            {
-              name: 'removeViewBox',
-            },
-            {
-              name: 'removeEmptyAttrs',
-              active: false,
-            },
-          ],
-        },
-      }),
       viteCompression({
         // 过滤器，对哪些类型的文件进行压缩，默认为 /.(js|mjs|json|css|html)$/i
-        filter: '/.(js|mjs|json|css|html)$/i',
+        // filter: '/.(js|mjs|json|css|html)$/i',
         verbose: true,
         // 是否删除源文件
         deleteOriginFile: false,
@@ -86,10 +59,8 @@ export default ({ mode }) => {
       },
     },
     server: {
-      // 是否开启 https
-      https: false,
       // 端口号
-      port: VITE_PORT,
+      port: 3000,
       // 监听所有地址
       host: '0.0.0.0',
       // 服务启动时是否自动打开浏览器

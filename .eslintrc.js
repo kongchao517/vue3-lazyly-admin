@@ -6,7 +6,7 @@
  * @ modified_by: kongchao
  * @ modified_time: 2023-05-11 15:14:38
  */
-const { defineConfig } = require('eslint-define-config');
+import { defineConfig } from 'eslint-define-config';
 
 module.exports = defineConfig({
   root: true,

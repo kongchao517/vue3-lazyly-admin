@@ -13,7 +13,7 @@
     "stylelint": "stylelint src/**/*.{html,vue,sass,scss,less} --cache --cache-location node_modules/.cache/stylelint/",
     "stylelint:fix": "stylelint src/**/*.{html,vue,sass,scss,less} --cache --cache-location node_modules/.cache/stylelint/ --fix",
     "prepare": "husky install",
-    "commit": "git pull && git add -A && git-cz && git push"
+    "commit": "cz"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
@@ -41,8 +41,8 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
+    "@commitlint/cli": "^17.8.1",
+    "@commitlint/config-conventional": "^17.8.1",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
     "cz-git": "^1.4.1",
@@ -73,8 +73,19 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-git"
+      "path": "cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "eslint --fix",
+      "git add ."
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china"
