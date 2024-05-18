@@ -13,12 +13,11 @@ module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
-    'body-leading-blank': [2, 'always'],
-    'footer-leading-blank': [1, 'always'],
-    'header-max-length': [2, 'always', 108],
-    'subject-empty': [2, 'never'],
-    'type-empty': [2, 'never'],
-    'subject-case': [0],
+    'body-leading-blank': [2, 'always'], // body 开始于空白行
+    'header-max-length': [2, 'always', 72], // header 字符最大长度为 72
+    'subject-full-stop': [0, 'never'], // subject 结尾不加 '.'
+    'type-empty': [2, 'never'], // type 不为空
+
     'type-enum': [
       2,
       'always',
@@ -158,9 +157,9 @@ module.exports = {
     ],
     useEmoji: true,
     scopes: [],
-    customScopesAlign: 'bottom',
-    emptyScopesAlias: 'empty',
-    customScopesAlias: 'custom',
-    allowBreakingChanges: ['feat', 'fix'],
+    // customScopesAlign: 'bottom',
+    // emptyScopesAlias: 'empty',
+    // customScopesAlias: 'custom',
+    // allowBreakingChanges: ['feat', 'fix'],
   },
 };
