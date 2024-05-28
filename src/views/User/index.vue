@@ -91,6 +91,15 @@ const onSubmit = (val) => {
         line-height: 36px;
         padding: 30px 20px;
       }
+      :deep(.el-input__wrapper) {
+        background-color: transparent;
+      }
+      :deep(.el-input-group__prepend) {
+        background-color: transparent;
+      }
+      :deep(.el-input-group__append) {
+        background-color: transparent;
+      }
     }
   }
 }

@@ -78,12 +78,12 @@ onRandom();
   font-size: 24px !important;
 }
 :deep(.el-input-group__append) {
-  background-color: #ffffff !important;
-  border: 0;
-  padding: 0 15px;
+  background-color: #ffffff;
+  font-size: 24px;
+  box-shadow: none;
 }
 :deep(.el-input-group__prepend) {
-  background-color: #ffffff !important;
+  background-color: #ffffff;
   border: 0;
   padding: 0 9px;
   box-shadow: none;
@@ -93,8 +93,26 @@ onRandom();
     top: -4px;
   }
 }
+:deep(.el-input__wrapper.is-focus) {
+  border-bottom: 2px solid #409eff;
+  transition: all 3s;
+}
 :deep(.el-input__wrapper) {
   box-shadow: none;
+  border-bottom: transparent;
+}
+:deep(.el-input__wrapper:before) {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #409eff;
+  transition: width 0.3s ease-in-out;
+}
+:deep(.el-input__wrapper.is-focus:before) {
+  width: 100%;
 }
 </style>
 <style lang="scss">
