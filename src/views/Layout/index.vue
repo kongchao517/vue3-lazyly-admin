@@ -9,7 +9,7 @@
 <template>
   <div class="common-layout">
     <el-container>
-      <el-aside :style="{ width: isCollapse ? '65px' : '200px' }">
+      <el-aside :style="{ width: isCollapse ? '100px' : '200px' }">
         <Menu v-model:isCollapse="isCollapse" />
       </el-aside>
       <el-container>

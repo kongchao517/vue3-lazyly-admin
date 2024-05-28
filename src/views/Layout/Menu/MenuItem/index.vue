@@ -59,6 +59,7 @@ export default {
   padding: 0 10px;
 }
 .iconfont {
-  font-size: 16px;
+  font-size: 24px;
+  color: #333333;
 }
 </style>

@@ -32,6 +32,7 @@
 </template>
 
 <script setup>
+import useStore from '@store';
 import { computed } from 'vue';
 import { ArrowDown } from '@element-plus/icons-vue';
 import { useRouter } from 'vue-router';
@@ -43,6 +44,7 @@ const props = defineProps({
   },
 });
 
+const store = useStore();
 const emits = defineEmits(['update:isCollapse']);
 const isColl = computed({
   get() {
@@ -58,6 +60,7 @@ const toggle = () => {
 };
 const onExit = () => {
   router.push('/login');
+  store.tabData.tabMenuData = [];
 };
 </script>
 <style scoped lang="scss">

@@ -9,7 +9,7 @@
 import { defineStore } from 'pinia';
 
 export const useTagStore = defineStore('tag', {
-  persis: true, // 开启持久化
+  persist: true, // 开启持久化
   state: () => ({
     tabMenuData: [],
   }),

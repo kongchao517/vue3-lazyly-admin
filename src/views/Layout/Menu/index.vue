@@ -11,7 +11,7 @@
   <div class="menu">
     <div class="menu_logo" @click="emit('update:isCollapse', isCollapse ? false : true)">
       <el-icon class="icon"><Ship /></el-icon>
-      <div v-if="!isCollapse">LeetCode</div>
+      <div v-if="!isCollapse">lazyly-admin</div>
     </div>
     <el-menu :collapse="isCollapse" router :default-active="defaultActive" text-color="#1d1d1f">
       <MenuItem :routes="routes[0].children" />
@@ -70,7 +70,13 @@ const defaultActive = computed(() => route.path);
 :deep(.el-menu) {
   background: none;
   border: none;
+  width: 100%;
+  margin: 0 auto !important;
 }
+:deep(.el-menu--collapse) {
+  padding-left: 15px;
+}
+
 :deep(.el-menu-item:hover) {
   background-color: rgba(250, 38, 90, 0.1);
 }

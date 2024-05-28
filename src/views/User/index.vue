@@ -19,13 +19,16 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router';
+import useStore from '@store';
+import { useRouter, useRoute } from 'vue-router';
 import LoginForm from './LoginForm';
-
+const store = useStore();
+const route = useRoute();
 const router = useRouter();
 const onSubmit = (val) => {
-  console.log('val', val);
+  console.log('val', val, route);
   router.push('/');
+  store.tabData.tabMenuData.push(route);
 };
 </script>
 <style scoped lang="scss">

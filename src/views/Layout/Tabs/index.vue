@@ -15,7 +15,7 @@
         class="mx-1"
         :effect="item.path === route.path ? 'dark' : 'light'"
         closable
-        :type="item.path === route.path ? '' : 'success'"
+        :type="item.path === route.path ? 'primary' : 'success'"
         :disable-transitions="false"
         @click="onTag(item.path)"
         @close="handleClose(item.path)"
