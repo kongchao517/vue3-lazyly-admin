@@ -17,7 +17,6 @@ module.exports = {
     'header-max-length': [2, 'always', 72], // header 字符最大长度为 72
     'subject-full-stop': [0, 'never'], // subject 结尾不加 '.'
     'type-empty': [2, 'never'], // type 不为空
-
     'type-enum': [
       2,
       'always',
